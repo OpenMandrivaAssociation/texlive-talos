@@ -3,7 +3,7 @@ Version:	61820
 Release:	2
 Summary:	A Greek cult font from the eighties
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/talos
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/talos
 License:	gfl
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/talos.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/talos.doc.r%{version}.tar.xz

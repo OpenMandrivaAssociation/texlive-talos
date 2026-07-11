@@ -1,38 +1,23 @@
-Name:		texlive-talos
-Version:	61820
-Release:	2
+%global tl_name talos
+%global tl_revision 61820
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	1.0
+Release:	%{tl_revision}.1
 Summary:	A Greek cult font from the eighties
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/talos
+URL:		https://www.ctan.org/tex-archive/fonts/greek/talos
 License:	gfl
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/talos.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/talos.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/talos.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/talos.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-A cult Greek font from the eighties, used at the University of
-Crete, Greece. It belonged to the first TeX installation in a
-Greek University and most probably the first TeX installation
-that supported the Greek language.
+A cult Greek font from the eighties, used at the University of Crete,
+Greece. It belonged to the first TeX installation in a Greek University
+and most probably the first TeX installation that supported the Greek
+language.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/fonts/opentype/public/talos
-%doc %{_texmfdistdir}/doc/fonts/talos
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
